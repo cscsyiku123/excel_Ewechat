@@ -1,0 +1,39 @@
+idl-spec.yaml
+target/
+*/catalina.home_IS_UNDEFINED/logs/
+catalina.home_IS_UNDEFINED/logs/
+.gradle/
+!.mvn/wrapper/maven-wrapper.jar
+*.DS_Store
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### rpc ###
+src/main/java/com/xiaohongshu/fls/rpc/
+src/main/java/idl-spec.yaml
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
