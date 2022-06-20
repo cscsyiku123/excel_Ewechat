@@ -3,7 +3,7 @@ const colors = ['#91cc75', '#5470c6', '#ee6666', '#7a22ef', '#3bbcd9']
 
 // 折线图1
 function echarts_1(data) {
-    let [data1, data2, data3] = [data[0], data[1], data[3]];   // 定义三组折线数据
+    var data1= data[0]   // 定义三组折线数据
     var dom = document.getElementById("echart1");
     var myChart1 = echarts.init(dom);
     var option = {
@@ -48,12 +48,12 @@ function echarts_1(data) {
     showChart(data1, myChart1, option);   // 初始渲染
 
 // 折线图切换渲染
-    $('.database1 .tags li').on('click', function () {
-        let index = $(this).index() + 1;
-        $(this).addClass('check').siblings().removeClass('check');
-        let targetdata = eval('data' + index);
-        showChart(targetdata, myChart1, option);
-    })
+//     $('.database1 .tags li').on('click', function () {
+//         let index = $(this).index() + 1;
+//         $(this).addClass('check').siblings().removeClass('check');
+//         let targetdata = eval('data' + index);
+//         showChart(targetdata, myChart1, option);
+//     })
 }
 
 
@@ -66,7 +66,8 @@ function echarts_1(data) {
 function set_series(data) {
     var series = [];
     var series_data = data.series;
-    series_data.forEach((e, index) => {
+
+    series_data.forEach(function (e,index) {
         var item = {
             name: e.name,
             data: e.data,
@@ -95,12 +96,12 @@ function set_series(data) {
 * @param {Object} option  echarts 配置项
 */
 function showChart(data, myChart, option) {
-    let new_legend = [];                      // 获取折线类别数量
+    const new_legend = [];                      // 获取折线类别数量
 
     if (data) {
-        let new_series = set_series(data)
+        const new_series = set_series(data)
 
-        data.series.forEach(e => {
+        data.series.forEach(function(e){
             new_legend.push(e.name);
         })
 

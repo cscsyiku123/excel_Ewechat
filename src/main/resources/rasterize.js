@@ -40,7 +40,37 @@ if (system.args.length < 3 || system.args.length > 5) {
             console.log('Unable to load the address!');
             phantom.exit(1);
         } else {
+            console.log("导入js脚本")
+            var echarts=page.injectJs("/Users/zhangquan/Desktop/temp/excel_Ewechat/src/main/resources/echarts.min.js")
+            console.log(echarts)
+            var loadecharts=page.injectJs("/Users/zhangquan/Desktop/temp/excel_Ewechat/src/main/resources/1.js")
+            console.log(loadecharts)
+
+            page.evaluate(function () {
+                document.body.bgColor = 'white';
+                console.log("执行函数")
+                data=[{
+                    categories:["123","456"],
+                    series :[
+                        {name:"123",
+                            data: "1"
+                        },
+                        {name:"456",
+                            data: "1"
+                        }
+                    ]
+                }
+
+                ]
+                echarts_1(data)
+            })
+
+
+
+
+
             window.setTimeout(function () {
+                console.log("开始render")
                 page.render(output);
                 phantom.exit();
             }, 2000);
